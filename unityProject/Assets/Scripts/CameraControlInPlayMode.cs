@@ -7,6 +7,8 @@ public class CameraControlInPlayMode : MonoBehaviour {
     private Camera mainCam;
     public float moveSpd = 10f;
     public float scrollSpd = 300f;
+    public float maxView = 25f;
+    public float minView = 2f;
 
     public bool isInEditMode = false;
 
@@ -59,15 +61,17 @@ public class CameraControlInPlayMode : MonoBehaviour {
 
         if (Input.GetAxis("Mouse ScrollWheel")>0)
         {
-            if (mainCam.transform.localPosition.y > 2f)
+            if (mainCam.transform.localPosition.y > minView)
             {
-                mainCam.transform.localPosition += new Vector3(0f, -1f, 1f) * scrollSpd * Time.deltaTime;
+                mainCam.transform.localPosition += new Vector3(0f, -1f, 0) * scrollSpd * Time.deltaTime;
+                moveSpd = (mainCam.transform.localPosition.y - 2f) * 0.5f + 7f; //相机越远，速度越大
             }
         }else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
-            if(mainCam.transform.localPosition.y < 25f)
+            if(mainCam.transform.localPosition.y < maxView)
             {
-                mainCam.transform.localPosition += new Vector3(0f, 1f, -1f) * scrollSpd * Time.deltaTime;
+                mainCam.transform.localPosition += new Vector3(0f, 1f, 0) * scrollSpd * Time.deltaTime;
+                moveSpd = (mainCam.transform.localPosition.y - 2f) * 0.5f + 7f;
             }
         }
     }

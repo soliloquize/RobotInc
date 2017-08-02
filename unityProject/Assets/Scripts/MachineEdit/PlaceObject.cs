@@ -27,6 +27,7 @@ public class PlaceObject : MonoBehaviour {
     public GameObject chosenPart = null; //被选中的，跟随鼠标走的物体；
     public GameObject placePart = null; //实际放置时新生成的物体， 新增时=被选中物体，编辑时不使用此值
     public bool isPlacingPart = false;
+    public float cellSize = 1f;
 
     private float curX = 0, curZ = 0; //当前鼠标所在坐标位置（取整），round（hit）
     private float originX, originZ; //编辑物体时，记忆物体的改动前位置，若取消修改，则返回此处
@@ -53,10 +54,10 @@ public class PlaceObject : MonoBehaviour {
         {
             Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(r, out hit, 100f))
+            if (Physics.Raycast(r, out hit, 1000f))
             {
-                curX = Mathf.Round(hit.point.x);
-                curZ = Mathf.Round(hit.point.z);
+                curX = Mathf.Round(hit.point.x/cellSize)*cellSize;
+                curZ = Mathf.Round(hit.point.z/cellSize)*cellSize;
                 int curLayer = hit.collider.gameObject.layer;
                 //LayerMask curLayerMask = 1 << curLayer;
                 //print("指向的layer" + curLayer + ", 目前的state是 " + curState);
