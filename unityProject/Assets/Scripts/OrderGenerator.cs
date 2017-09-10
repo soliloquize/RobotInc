@@ -27,7 +27,7 @@ public class OrderGenerator : MonoBehaviour {
     public string[] namePartC = new string[5] { "史莱姆", "法师", "骑士", "刺客", "炮灰" };
 
 
-    public void GenerateNewOrder()
+    public void GenerateNewOrder() //随机属性、名称；随机属性在2-5点中，
     {
         ClearMachines();
         orderName = namePartA[Random.Range(1, 5)] + namePartB[Random.Range(1, 5)] + namePartC[Random.Range(1, 5)];
@@ -71,6 +71,8 @@ public class OrderGenerator : MonoBehaviour {
         return productCountDemand;
     }
 
+    //用在删除已选的部件，点击部件icon来删除
+    //部件icon设置为button，每次加入新的部位，根据所选的合成房间重新排序
     public void ClearMachines()
     {
         curAtk = 0;
@@ -91,6 +93,8 @@ public class OrderGenerator : MonoBehaviour {
         */
     }
 
+    //在配置机器位置，加入选择的机器
+    //用在order in Q中，配置使用部件，
     public void AddNewMachineIcon(Sprite machineIcon)
     {
         icons.Add(machineIcon);
@@ -100,8 +104,6 @@ public class OrderGenerator : MonoBehaviour {
         newIcon.GetComponent<Image>().sprite = machineIcon;
         newIcon.transform.SetParent(maIconPanel, false);        
         iconPosOffset = 35f * icons.Count - 35f;
-        newIcon.transform.localPosition = new Vector3(newIcon.transform.localPosition.x + iconPosOffset, newIcon.transform.localPosition.y, newIcon.transform.localPosition.z);
-        
-        
+        newIcon.transform.localPosition = new Vector3(newIcon.transform.localPosition.x + iconPosOffset, newIcon.transform.localPosition.y, newIcon.transform.localPosition.z);      
     }
 }

@@ -91,18 +91,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraControlInPlayMode.cs" />
+    <Compile Include="Assets\Scripts\CombineRoomController.cs" />
+    <Compile Include="Assets\Scripts\Factory.cs" />
     <Compile Include="Assets\Scripts\GameStateControl.cs" />
+    <Compile Include="Assets\Scripts\InterfaceController\HoverInfoOnBtn.cs" />
+    <Compile Include="Assets\Scripts\InterfaceController\OrderInterfaceController.cs" />
     <Compile Include="Assets\Scripts\Machine\DecoratorAttribute.cs" />
     <Compile Include="Assets\Scripts\Machine\MachineAttribute.cs" />
     <Compile Include="Assets\Scripts\Machine\ProdLine.cs" />
     <Compile Include="Assets\Scripts\Machine\TransAttribute.cs" />
-    <Compile Include="Assets\Scripts\MachineEdit\HoverInfoOnBtn.cs" />
     <Compile Include="Assets\Scripts\MachineEdit\MachinePartList.cs" />
     <Compile Include="Assets\Scripts\MachineEdit\MachineShopList.cs" />
     <Compile Include="Assets\Scripts\MachineEdit\PlaceObject.cs" />
-    <Compile Include="Assets\Scripts\MapController.cs" />
     <Compile Include="Assets\Scripts\OrderController.cs" />
     <Compile Include="Assets\Scripts\OrderGenerator.cs" />
+    <Compile Include="Assets\Scripts\Room\CompositeRoomAttri.cs" />
+    <Compile Include="Assets\Scripts\Room\PlaceRoomToNode.cs" />
+    <Compile Include="Assets\Scripts\Room\ProduceRoomAttri.cs" />
+    <Compile Include="Assets\Scripts\Room\RoomBuildingAttri.cs" />
+    <Compile Include="Assets\Scripts\Room\RoomInMapInfo.cs" />
+    <Compile Include="Assets\Scripts\Room\RoomPool.cs" />
+    <Compile Include="Assets\Scripts\Room\_RoomClass.cs" />
+    <Compile Include="Assets\Scripts\Tech.cs" />
     <Compile Include="Assets\Scripts\WarSimulate\FightSim.cs" />
     <Compile Include="Assets\Scripts\_producingObject.cs" />
   </ItemGroup>

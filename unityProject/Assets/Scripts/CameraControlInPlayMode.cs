@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CameraControlInPlayMode : MonoBehaviour {
 
-    private Camera mainCam;
+    public Camera mainCam;
+    public Camera editCam;
     public float moveSpd = 10f;
     public float scrollSpd = 300f;
     public float maxView = 25f;
@@ -14,13 +15,15 @@ public class CameraControlInPlayMode : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        mainCam = gameObject.GetComponentInChildren<Camera>();
+        mainCam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        editCam = GameObject.FindWithTag("EditorCamera").GetComponent<Camera>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (isInEditMode == false)
         {
+            /*
             if (Input.GetKeyDown("q"))
             {
                 gameObject.transform.eulerAngles += new Vector3(0, -45f, 0);
@@ -30,7 +33,7 @@ public class CameraControlInPlayMode : MonoBehaviour {
             {
                 gameObject.transform.eulerAngles += new Vector3(0, 45f, 0);
             }
-
+            */
         }
         else
         {
@@ -65,6 +68,7 @@ public class CameraControlInPlayMode : MonoBehaviour {
             {
                 mainCam.transform.localPosition += new Vector3(0f, -1f, 0) * scrollSpd * Time.deltaTime;
                 moveSpd = (mainCam.transform.localPosition.y - 2f) * 0.5f + 7f; //相机越远，速度越大
+                editCam.orthographicSize = 9f + (mainCam.transform.localPosition.y-2f)/2.3f;
             }
         }else if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
@@ -72,6 +76,7 @@ public class CameraControlInPlayMode : MonoBehaviour {
             {
                 mainCam.transform.localPosition += new Vector3(0f, 1f, 0) * scrollSpd * Time.deltaTime;
                 moveSpd = (mainCam.transform.localPosition.y - 2f) * 0.5f + 7f;
+                editCam.orthographicSize = 9f + (mainCam.transform.localPosition.y - 2f) / 2.3f;
             }
         }
     }

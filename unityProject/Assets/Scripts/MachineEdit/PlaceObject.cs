@@ -384,7 +384,8 @@ public class PlaceObject : MonoBehaviour {
 
     }
 
-    public void StartCheckLine()
+    /*
+    public void StartCheckLine() //按照一定顺序，检测线路前后链接是否正确，目前停用
     {
         print("start to check the line!");
         if (startId != -1) {
@@ -408,7 +409,7 @@ public class PlaceObject : MonoBehaviour {
 
     }
 
-        bool CheckProdLine(ProdLinePart curEndPart, int curLineType)
+    bool CheckProdLine(ProdLinePart curEndPart, int curLineType)
     {
         print("------start to check-----" + curEndPart.itemId + " , " + curLineType);
         if(curEndPart.type == 5 )
@@ -458,6 +459,6 @@ public class PlaceObject : MonoBehaviour {
 
     }
 
-    
+    */
 
 }
